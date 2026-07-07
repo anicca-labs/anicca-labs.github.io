@@ -3,100 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anicca Labs LLC</title>
-  <meta name="description" content="Anicca Labs LLC is an independent software studio building mobile applications." />
+  <title>Anicca Labs — independent app studio</title>
+  <meta name="description" content="Anicca Labs LLC is an independent software studio building calm, private mobile apps — including Reflect, a journaling app for iOS and Android." />
+  <link rel="icon" type="image/png" href="/reflect-icon.png" />
+  <link rel="apple-touch-icon" href="/reflect-icon.png" />
+  <meta property="og:title" content="Anicca Labs — independent app studio" />
+  <meta property="og:description" content="We build calm, private mobile apps. Meet Reflect, our journaling app for iOS and Android." />
+  <meta property="og:type" content="website" />
   <style>
     :root {
-      --bg: #0d0f12;
-      --panel: #14171c;
-      --text: #e8eaed;
-      --muted: #9aa0a6;
-      --accent: #6ea8fe;
-      --border: #22262e;
+      --bg: #f2eee4;
+      --panel: #fbf9f3;
+      --ink: #2c2a24;
+      --muted: #6f6a5e;
+      --green: #7a9a7d;
+      --green-dark: #5e7d62;
+      --border: #e4dece;
+      --shadow: 0 1px 2px rgba(44,42,36,.04), 0 8px 30px rgba(44,42,36,.06);
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
       background: var(--bg);
-      color: var(--text);
+      color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 96px 24px 64px;
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* nav */
+    nav {
+      display: flex; align-items: center; gap: 12px;
+      padding: 28px 0 0;
     }
-    header { margin-bottom: 48px; }
-    .logo {
-      font-size: 15px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 28px;
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 650; letter-spacing: .01em; }
+    .brand .mark {
+      width: 30px; height: 30px; border-radius: 8px; flex: none;
+      background: url("/reflect-icon.png") center/cover no-repeat;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+    }
+
+    /* hero */
+    .hero { padding: 84px 0 40px; }
+    .eyebrow {
+      font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--green-dark); font-weight: 650; margin-bottom: 22px;
     }
     h1 {
-      font-size: 40px;
-      line-height: 1.15;
-      margin: 0 0 20px;
-      font-weight: 700;
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+      font-weight: 600; font-size: 46px; line-height: 1.12;
+      margin: 0 0 22px; letter-spacing: -.01em;
     }
-    .lede { font-size: 19px; color: var(--muted); margin: 0; }
-    section { margin-top: 48px; }
-    h2 {
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 12px;
-      font-weight: 600;
+    .hero p { font-size: 20px; color: var(--muted); margin: 0; max-width: 560px; }
+
+    /* section heading */
+    .sec-label {
+      font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--muted); font-weight: 650; margin: 0 0 18px;
     }
-    p { margin: 0 0 16px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .card {
+    section { padding: 32px 0; }
+
+    /* product card */
+    .product {
       background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px 28px;
+      border-radius: 22px;
+      padding: 36px;
+      box-shadow: var(--shadow);
     }
-    .contact-row { margin: 6px 0; }
-    .contact-row .label { color: var(--muted); display: inline-block; min-width: 92px; }
+    .product-head { display: flex; align-items: center; gap: 20px; }
+    .app-icon {
+      width: 84px; height: 84px; border-radius: 20px; flex: none;
+      box-shadow: 0 2px 10px rgba(44,42,36,.12), inset 0 0 0 1px rgba(0,0,0,.04);
+    }
+    .app-title { margin: 0; font-size: 27px; font-weight: 680; letter-spacing: -.01em; }
+    .app-sub { margin: 3px 0 0; color: var(--green-dark); font-weight: 550; font-size: 15px; }
+    .product > p.blurb { font-size: 17px; color: var(--ink); margin: 24px 0 4px; }
+    ul.features {
+      list-style: none; padding: 0; margin: 20px 0 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px 26px;
+    }
+    ul.features li {
+      position: relative; padding-left: 26px; color: var(--ink); font-size: 15.5px;
+    }
+    ul.features li::before {
+      content: ""; position: absolute; left: 2px; top: 9px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+    }
+    .pro-note { margin: 22px 0 0; font-size: 14px; color: var(--muted); }
+
+    /* store buttons */
+    .stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 11px;
+      background: #1c1b17; color: #fff; text-decoration: none;
+      padding: 11px 18px; border-radius: 13px; transition: transform .12s ease, background .2s ease;
+    }
+    .store-btn:hover { transform: translateY(-1px); background: #000; }
+    .store-btn svg { width: 22px; height: 22px; flex: none; }
+    .store-btn .st { display: flex; flex-direction: column; line-height: 1.15; }
+    .store-btn .st small { font-size: 10.5px; opacity: .8; letter-spacing: .02em; }
+    .store-btn .st span { font-size: 16px; font-weight: 600; }
+
+    /* studio / values */
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .tile {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px 24px;
+    }
+    .tile h3 { margin: 0 0 6px; font-size: 16px; }
+    .tile p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    /* contact */
+    .contact { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
+    .contact .row { margin: 5px 0; }
+    .contact .k { color: var(--muted); display: inline-block; min-width: 96px; }
+    a { color: var(--green-dark); }
+
     footer {
-      margin-top: 64px;
-      padding-top: 24px;
+      margin-top: 24px; padding: 30px 0 56px;
       border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      color: var(--muted); font-size: 14px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
     }
-    footer a { color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 34px; }
+      .hero p { font-size: 18px; }
+      .product { padding: 26px; }
+      ul.features { grid-template-columns: 1fr; }
+      .grid2 { grid-template-columns: 1fr; }
+      .app-icon { width: 68px; height: 68px; border-radius: 16px; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="logo">Anicca Labs</div>
-      <h1>We build mobile applications.</h1>
-      <p class="lede">Anicca Labs LLC is an independent software studio designing and shipping consumer mobile apps for iOS and Android.</p>
-    </header>
+    <nav>
+      <div class="brand"><span class="mark"></span> Anicca Labs</div>
+    </nav>
+
+    <div class="hero">
+      <div class="eyebrow">Independent app studio</div>
+      <h1>Calm, private software for everyday life.</h1>
+      <p>Anicca Labs LLC designs and builds its own mobile apps for iOS and Android — thoughtful tools made to be used every day, and to respect the people using them.</p>
+    </div>
 
     <section>
-      <h2>What we do</h2>
-      <p>We design, develop, and publish our own mobile applications — including <strong>Reflect</strong>, a journaling app for iOS and Android. Our focus is thoughtful, privacy-respecting software built for everyday use.</p>
+      <p class="sec-label">Our apps</p>
+      <div class="product">
+        <div class="product-head">
+          <img class="app-icon" src="/reflect-icon.png" alt="Reflect app icon" width="84" height="84" />
+          <div>
+            <h2 class="app-title">Reflect</h2>
+            <p class="app-sub">Journaling · iOS &amp; Android · Free</p>
+          </div>
+        </div>
+
+        <p class="blurb">A calm, private space to capture your thoughts, ideas, and feelings. Write freely — or speak — and your entries stay encrypted and in sync across all your devices.</p>
+
+        <ul class="features">
+          <li>Journal anytime, anywhere</li>
+          <li>Capture entries with your voice</li>
+          <li>Gentle reminders resurface past reflections</li>
+          <li>Seamless sync across devices</li>
+          <li>Entries encrypted and private</li>
+          <li>Daily reminders to build the habit</li>
+        </ul>
+
+        <p class="pro-note">Reflect Pro unlocks unlimited entries.</p>
+
+        <div class="stores">
+          <a class="store-btn" href="https://apps.apple.com/us/app/reflect-it/id6767607183" target="_blank" rel="noopener">
+            <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM255.4 90.5c30.5-36.2 27.7-69.1 26.8-81-26.9 1.6-58 18.4-75.7 39.1-19.5 22.2-31 49.7-28.5 80.4 29.1 2.2 55.6-12.7 77.4-38.5z"/></svg>
+            <span class="st"><small>Download on the</small><span>App Store</span></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.reflect.prod" target="_blank" rel="noopener">
+            <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00d3ff" d="M47 24.6C40 32 36 43.4 36 58.2v395.6c0 14.8 4 26.2 11.3 33.5l1.3 1.2 221.6-221.5v-5.2L48.6 23.4z"/><path fill="#ffce00" d="M344 361.2l-73.8-73.9v-5.2l73.9-73.9 1.6 1 87.5 49.7c25 14.2 25 37.5 0 51.8l-87.5 49.7z"/><path fill="#ff3d47" d="M345.6 360.2L270 284.6 47 507.6c8.2 8.7 21.9 9.8 37.3 1.1l261.3-148.5"/><path fill="#00f076" d="M345.6 209L84.3 60.6C68.9 51.8 55.2 53 47 61.7l223 223z"/></svg>
+            <span class="st"><small>Get it on</small><span>Google Play</span></span>
+          </a>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Contact</h2>
-      <div class="card">
-        <div class="contact-row"><span class="label">Company</span> Anicca Labs LLC</div>
-        <div class="contact-row"><span class="label">Email</span> <a href="mailto:aniccalabsllc@gmail.com">aniccalabsllc@gmail.com</a></div>
-        <div class="contact-row"><span class="label">Location</span> Michigan, United States</div>
+      <p class="sec-label">How we build</p>
+      <div class="grid2">
+        <div class="tile">
+          <h3>Privacy first</h3>
+          <p>We collect as little as possible. Your content is yours — encrypted and never sold.</p>
+        </div>
+        <div class="tile">
+          <h3>Calm by design</h3>
+          <p>Quiet, focused interfaces without noise, dark patterns, or distraction.</p>
+        </div>
+        <div class="tile">
+          <h3>Cross-platform</h3>
+          <p>One considered experience across iOS and Android, kept in sync.</p>
+        </div>
+        <div class="tile">
+          <h3>Independent</h3>
+          <p>A small studio shipping its own products, on its own terms.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="sec-label">Contact</p>
+      <div class="contact">
+        <div class="row"><span class="k">Company</span> Anicca Labs LLC</div>
+        <div class="row"><span class="k">Email</span> <a href="mailto:aniccalabsllc@gmail.com">aniccalabsllc@gmail.com</a></div>
+        <div class="row"><span class="k">Location</span> Michigan, United States</div>
       </div>
     </section>
 
