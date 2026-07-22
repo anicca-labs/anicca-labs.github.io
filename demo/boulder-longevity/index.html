@@ -279,6 +279,23 @@
   .close .cta:hover { filter: brightness(1.05); transform: translateY(-1px); }
   .close .cta:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
 
+  .close .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 1.3rem; }
+  .close .actions .cta { margin-top: 0; }
+  .close .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+    padding: .7rem 1.15rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    transition: border-color .15s ease;
+  }
+  .close .cta-secondary:hover { border-color: var(--accent); }
+  .close .cta-secondary:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
+
   footer {
     margin-top: 2.5rem;
     text-align: center;
@@ -389,12 +406,15 @@
   </section>
 
   <div class="close">
-    <h2>This is a sample. The real thing answers your patients.</h2>
-    <p>For a pilot, we set it up and run it for you — new-patient DMs, missed calls, and website inquiries get answered in seconds and booked toward the Assessment, while your team stays with the patients in front of them. You keep every booking it generates.</p>
-    <a class="cta" href="mailto:hello@anicca-labs.com?subject=Boulder%20Longevity%20—%20front%20desk%20pilot">
-      Book a 10-minute call
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-    </a>
+    <h2>Those three were written for you. This one answers you live.</h2>
+    <p>Ask it anything a prospective patient might ask &mdash; about cost, a symptom, getting started &mdash; and watch it reply in seconds, grounded in your own website. Try to catch it out; it will tell you when it doesn&rsquo;t know rather than invent an answer.</p>
+    <div class="actions">
+      <a class="cta" href="https://demo.anicca-labs.com/demo/boulder-longevity">
+        Ask it something
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="cta-secondary" href="mailto:hello@anicca-labs.com?subject=Boulder%20Longevity%20—%20front%20desk%20pilot">Book a 10-minute call</a>
+    </div>
   </div>
 
   <footer>
