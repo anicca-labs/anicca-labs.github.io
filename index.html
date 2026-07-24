@@ -482,17 +482,6 @@
       transition: background-size 0.5s var(--ease-out), color 0.3s;
     }
     .email-giant:hover { background-size: 100% 2px; color: var(--vermilion); }
-    .contact-meta {
-      margin-top: clamp(2rem, 5vh, 3.2rem);
-      display: flex; flex-wrap: wrap; gap: 1rem 3.5rem;
-      font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em;
-      color: var(--bone-dim);
-    }
-    .contact-meta .k {
-      display: block; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.2em;
-      color: rgba(237, 230, 218, 0.4); margin-bottom: 0.4em;
-    }
-
     /* ——— footer ——— */
     footer {
       border-top: 1px solid var(--hairline);
@@ -526,6 +515,20 @@
       @keyframes heroFade {
         to { opacity: 0.15; transform: translateY(-6vh) scale(0.985); }
       }
+    }
+
+    /* ——— compact rhythm on phones ——— */
+    @media (max-width: 720px) {
+      .hero {
+        min-height: auto;
+        justify-content: flex-start;
+        padding-top: 6.5rem;
+        padding-bottom: 5.5rem;
+      }
+      .scroll-cue { bottom: 1.4rem; }
+      section { padding-top: 3.75rem; padding-bottom: 3.75rem; }
+      .sec-head { margin-bottom: 2.2rem; }
+      .sec-title br { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -721,11 +724,6 @@
         <p class="sec-label">Say hello</p>
         <h2 class="sec-title reveal">Most of what we build starts<br />with one good conversation.</h2>
         <a class="email-giant reveal" style="--d:.15s" href="mailto:hello@anicca-labs.com?subject=Hello%20Anicca%20Labs">hello@anicca-labs.com</a>
-
-        <div class="contact-meta reveal" style="--d:.25s">
-          <div><span class="k">Company</span> Anicca Labs LLC</div>
-          <div><span class="k">Working</span> Everywhere</div>
-        </div>
       </div>
     </section>
   </main>
