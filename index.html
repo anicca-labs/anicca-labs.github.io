@@ -14,7 +14,8 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0d0b09" />
+  <meta name="theme-color" content="#0d0b09" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230d0b09"/><g transform="translate(50 50) scale(0.9) translate(-50 -50)"><path d="M 74 18 A 42 42 0 1 0 88 46" fill="none" stroke="%23ede6da" stroke-width="12" stroke-linecap="round"/><circle cx="86.4" cy="29" r="8.5" fill="%23e8542f"/></g></svg>' />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
@@ -37,10 +38,37 @@
       --hairline: rgba(237, 230, 218, 0.12);
       --vermilion: #e8542f;
       --vermilion-soft: rgba(232, 84, 47, 0.14);
+      --vignette: rgba(0, 0, 0, 0.4);
+      --nav-bg: rgba(13, 11, 9, 0.72);
+      --marquee-bg: rgba(20, 17, 14, 0.5);
+      --ghost-stroke: rgba(237, 230, 218, 0.1);
+      --border-hover: rgba(237, 230, 218, 0.25);
+      --faint: rgba(237, 230, 218, 0.35);
       --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
       --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --measure: 34em;
+    }
+
+    /* ——— daylight: ink on rice paper ——— */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --ink: #f4efe6;
+        --ink-2: #ede7db;
+        --ink-3: #e6dfd0;
+        --bone: #211c17;
+        --bone-dim: #6e6455;
+        --bone-faint: rgba(33, 28, 23, 0.08);
+        --hairline: rgba(33, 28, 23, 0.15);
+        --vermilion: #d04722;
+        --vermilion-soft: rgba(208, 71, 34, 0.14);
+        --vignette: rgba(97, 78, 58, 0.16);
+        --nav-bg: rgba(244, 239, 230, 0.78);
+        --marquee-bg: rgba(236, 229, 216, 0.55);
+        --ghost-stroke: rgba(33, 28, 23, 0.12);
+        --border-hover: rgba(33, 28, 23, 0.3);
+        --faint: rgba(33, 28, 23, 0.4);
+      }
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -84,7 +112,7 @@
     body::after {
       content: "";
       position: fixed; inset: 0; z-index: 3; pointer-events: none;
-      background: radial-gradient(120% 90% at 50% 0%, transparent 55%, rgba(0,0,0,0.4) 100%);
+      background: radial-gradient(120% 90% at 50% 0%, transparent 55%, var(--vignette) 100%);
     }
 
     #field {
@@ -110,7 +138,7 @@
       border-bottom: 1px solid transparent;
     }
     nav.scrolled {
-      background: rgba(13, 11, 9, 0.72);
+      background: var(--nav-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom-color: var(--hairline);
@@ -122,6 +150,8 @@
       text-transform: uppercase;
     }
     .brand svg { width: 26px; height: 26px; }
+    .enso-path { stroke: var(--bone); }
+    .enso-dot { fill: var(--vermilion); }
     .brand .enso-path {
       stroke-dasharray: 1;
       stroke-dashoffset: 1;
@@ -289,7 +319,7 @@
       overflow: hidden;
       padding: 1.1rem 0;
       display: flex;
-      background: rgba(20, 17, 14, 0.5);
+      background: var(--marquee-bg);
     }
     .marquee-track {
       display: flex; flex-shrink: 0; gap: 3rem; padding-right: 3rem;
@@ -319,7 +349,7 @@
       font-size: clamp(7rem, 22vw, 17rem);
       font-weight: 500; line-height: 1;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(237, 230, 218, 0.1);
+      -webkit-text-stroke: 1px var(--ghost-stroke);
       pointer-events: none; user-select: none;
       z-index: 0;
       will-change: transform;
@@ -390,7 +420,7 @@
       background: linear-gradient(150deg, var(--ink-2), var(--ink) 60%);
       transition: border-color 0.4s ease;
     }
-    .card:hover { border-color: rgba(237, 230, 218, 0.25); }
+    .card:hover { border-color: var(--border-hover); }
     .card::before {
       content: "";
       position: absolute; inset: 0;
@@ -494,7 +524,9 @@
     footer a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--hairline); padding-bottom: 1px; transition: color 0.25s, border-color 0.25s; }
     footer a:hover { color: var(--bone); border-color: var(--vermilion); }
     footer .foot-links { display: flex; gap: 1.6rem; }
-    footer .impermanent { font-style: italic; font-family: var(--serif); font-size: 0.85rem; color: rgba(237, 230, 218, 0.35); }
+    footer .impermanent { font-style: italic; font-family: var(--serif); font-size: 0.85rem; color: var(--faint); }
+    .foot-mark { vertical-align: -2px; margin-right: 0.55em; }
+    .foot-mark path { stroke: currentColor; }
 
     /* ——— scroll-driven extras (progressive enhancement) ——— */
     @supports (animation-timeline: view()) {
@@ -730,7 +762,7 @@
 
   <footer>
     <span>&copy; 2026 Anicca Labs LLC</span>
-    <span class="impermanent"><img src="/logo.svg" alt="" width="15" height="15" style="vertical-align:-2px; margin-right:.55em; opacity:.75;" />Like everything else, this page will change.</span>
+    <span class="impermanent"><svg class="foot-mark" width="15" height="15" viewBox="0 0 100 100" aria-hidden="true"><path d="M 74 18 A 42 42 0 1 0 88 46" fill="none" stroke-width="11" stroke-linecap="round"/><circle class="enso-dot" cx="86.4" cy="29" r="7" fill="#e8542f"/></svg>Like everything else, this page will change.</span>
     <span class="foot-links">
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
@@ -827,6 +859,11 @@
       }
       for (var i = 0; i < COUNT; i++) { var m = spawn(); m.life = Math.random() * m.span; motes.push(m); }
 
+      /* theme-aware ink: bone motes on ink at night, ink motes on paper by day */
+      var lightMq = window.matchMedia("(prefers-color-scheme: light)");
+      var isLight = lightMq.matches;
+      lightMq.addEventListener("change", function (e) { isLight = e.matches; });
+
       var mouse = { x: -1e4, y: -1e4 };
       window.addEventListener("pointermove", function (e) {
         mouse.x = e.clientX * dpr; mouse.y = e.clientY * dpr;
@@ -873,8 +910,10 @@
           ctx.beginPath();
           ctx.arc(m.x, m.y, m.r, 0, 6.2832);
           ctx.fillStyle = m.warm
-            ? "rgba(232,84,47," + (alpha * 0.5).toFixed(3) + ")"
-            : "rgba(237,230,218," + (alpha * 0.22).toFixed(3) + ")";
+            ? (isLight ? "rgba(208,71,34," : "rgba(232,84,47,") + (alpha * 0.5).toFixed(3) + ")"
+            : (isLight
+                ? "rgba(33,28,23," + (alpha * 0.15).toFixed(3) + ")"
+                : "rgba(237,230,218," + (alpha * 0.22).toFixed(3) + ")");
           ctx.fill();
         }
       }
