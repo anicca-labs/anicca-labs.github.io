@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>Anicca Labs</title>
+  <!-- the circle never closes; the dot is the thing in motion -->
+  <path d="M 74 18 A 42 42 0 1 0 88 46" fill="none" stroke="#ede6da" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="86.4" cy="29" r="7" fill="#e8542f"/>
+</svg>
